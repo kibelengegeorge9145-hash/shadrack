@@ -1,0 +1,130 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../views';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --font-sans: 'Source Sans 3', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-display: 'Playfair Display', Georgia, serif;
+
+    /* Deep Navy palette */
+    --color-navy-50: #f0f4f9;
+    --color-navy-100: #dce6f1;
+    --color-navy-200: #b9cce2;
+    --color-navy-300: #8daacd;
+    --color-navy-400: #5f85b2;
+    --color-navy-500: #3e6697;
+    --color-navy-600: #2e4f79;
+    --color-navy-700: #23405f;
+    --color-navy-800: #1a3049;
+    --color-navy-900: #13233a;
+    --color-navy-950: #0b1727;
+
+    /* Cream / Kichaji */
+    --color-cream-50: #fdfbf6;
+    --color-cream-100: #faf5ea;
+    --color-cream-200: #f3ead3;
+    --color-cream-300: #e9d9ae;
+    --color-cream-400: #dcc48a;
+
+    /* Subtle gold */
+    --color-gold-300: #e7cd8d;
+    --color-gold-400: #d4af55;
+    --color-gold-500: #c09a3e;
+    --color-gold-600: #a37f2f;
+
+    /* Subtle brown */
+    --color-bronze-500: #8a6a42;
+    --color-bronze-600: #71542f;
+
+    --shadow-card: 0 1px 3px 0 rgb(11 23 39 / 0.06), 0 1px 2px -1px rgb(11 23 39 / 0.05);
+    --shadow-card-hover: 0 10px 30px -10px rgb(11 23 39 / 0.18);
+
+    --radius-xl2: 1.25rem;
+}
+
+@layer base {
+    html {
+        -webkit-text-size-adjust: 100%;
+        scroll-behavior: smooth;
+    }
+
+    body {
+        @apply bg-cream-50 text-navy-900 antialiased;
+        font-family: var(--font-sans);
+    }
+
+    .dark body {
+        @apply bg-navy-950 text-navy-100;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: var(--font-display);
+        font-weight: 700;
+    }
+
+    ::selection {
+        background-color: var(--color-gold-400);
+        color: var(--color-navy-950);
+    }
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    @apply bg-navy-200 rounded-full dark:bg-navy-700;
+}
+::-webkit-scrollbar-thumb:hover {
+    @apply bg-navy-300 dark:bg-navy-600;
+}
+
+/* Simple fade/rise animation for page content */
+@keyframes rise {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.fade-rise {
+    animation: rise 0.35s ease both;
+}
+
+@keyframes pulse-soft {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.55; }
+}
+.pulse-soft {
+    animation: pulse-soft 2s ease-in-out infinite;
+}
+
+/* Report card print styling */
+@media print {
+    body {
+        background: white !important;
+        color: black !important;
+    }
+    .no-print {
+        display: none !important;
+    }
+    .print-area {
+        box-shadow: none !important;
+        border: none !important;
+        margin: 0 !important;
+        max-width: 100% !important;
+    }
+    .print-table th, .print-table td {
+        border-color: #000 !important;
+        color: #000 !important;
+    }
+    @page {
+        margin: 12mm;
+    }
+}

@@ -1,0 +1,39 @@
+[90m= [39m[34;4mIlluminate\Database\Eloquent\Collection[39;24m {#8232
+    [34mall[39m: [
+      [34;4mApp\Models\User[39;24m {#8234
+        [34mid[39m: [35m1[39m,
+        [34mname[39m: [32m"[39m[32mSchool Administrator[39m[32m"[39m,
+        [34memail[39m: [32m"[39m[32madmin@ebenezer.edu.tz[39m[32m"[39m,
+        [34mrole[39m: [32m"[39m[32madmin[39m[32m"[39m,
+        [34mis_active[39m: [35m1[39m,
+      },
+      [34;4mApp\Models\User[39;24m {#8233
+        [34mid[39m: [35m2[39m,
+        [34mname[39m: [32m"[39m[32mGrace Accountant[39m[32m"[39m,
+        [34memail[39m: [32m"[39m[32maccountant@ebenezer.edu.tz[39m[32m"[39m,
+        [34mrole[39m: [32m"[39m[32maccountant[39m[32m"[39m,
+        [34mis_active[39m: [35m1[39m,
+      },
+      [34;4mApp\Models\User[39;24m {#8667
+        [34mid[39m: [35m3[39m,
+        [34mname[39m: [32m"[39m[32mJohn Teacher[39m[32m"[39m,
+        [34memail[39m: [32m"[39m[32mteacher@ebenezer.edu.tz[39m[32m"[39m,
+        [34mrole[39m: [32m"[39m[32mteacher[39m[32m"[39m,
+        [34mis_active[39m: [35m1[39m,
+      },
+      [34;4mApp\Models\User[39;24m {#8209
+        [34mid[39m: [35m4[39m,
+        [34mname[39m: [32m"[39m[32mAli Student[39m[32m"[39m,
+        [34memail[39m: [32m"[39m[32mstudent@ebenezer.edu.tz[39m[32m"[39m,
+        [34mrole[39m: [32m"[39m[32mstudent[39m[32m"[39m,
+        [34mis_active[39m: [35m1[39m,
+      },
+      [34;4mApp\Models\User[39;24m {#8666
+        [34mid[39m: [35m5[39m,
+        [34mname[39m: [32m"[39m[32mMaria Parent[39m[32m"[39m,
+        [34memail[39m: [32m"[39m[32mparent@ebenezer.edu.tz[39m[32m"[39m,
+        [34mrole[39m: [32m"[39m[32mparent[39m[32m"[39m,
+        [34mis_active[39m: [35m1[39m,
+      },
+    ],
+  }

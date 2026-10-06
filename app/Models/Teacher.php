@@ -1,0 +1,51 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+class Teacher extends Model
+{
+    use SoftDeletes;
+
+    protected $fillable = [
+        'user_id', 'staff_id', 'first_name', 'middle_name', 'last_name',
+        'phone', 'email', 'gender', 'date_of_birth', 'department',
+        'qualification', 'is_active',
+    ];
+
+    protected $casts = ['date_of_birth' => 'date', 'is_active' => 'boolean'];
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function subjects(): BelongsToMany
+    {
+        return $this->belongsToMany(Subject::class, 'teacher_subjects')
+            ->withPivot('school_class_id');
+    }
+
+    public function classes(): BelongsToMany
+    {
+        return $this->belongsToMany(SchoolClass::class, 'teacher_classes');
+    }
+
+    public function getFullNameAttribute(): string
+    {
+        return trim(implode(' ', array_filter([$this->first_name, $this->middle_name, $this->last_name])));
+    }
+
+    public function getInitialsAttribute(): string
+    {
+        return collect([$this->first_name, $this->last_name])
+            ->filter()
+            ->map(fn ($p) => mb_strtoupper(mb_substr((string) $p, 0, 1)))
+            ->take(2)
+            ->implode('');
+    }
+}
